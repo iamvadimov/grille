@@ -4,4 +4,4 @@ To conduct encrypted correspondence, a special grid is used - a mask with specif
 
 The second part is the reverse task, that is, the restoration of the lost grid, based on the availability of encrypted and decrypted messages.
 
-See algorithm description here https://en.wikipedia.org/wiki/Cardan_grille
+See algorithm description here https://en.wikipedia.org/wiki/Grille_(cryptography)
