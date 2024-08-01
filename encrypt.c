@@ -23,8 +23,8 @@ void print_matrix(const int (*arr)[SIDE]) {
       	for (int j = 0; j < SIDE; j++) {
         	printf("%2d ", arr[i][j]);
       	} 
-      	putchar('\n');
-  	}
+        putchar('\n');
+    }
 }
 
 void print_symb(const char (*arr)[SIDE]) {
@@ -33,7 +33,7 @@ void print_symb(const char (*arr)[SIDE]) {
       		printf("%2c ", arr[i][j] ? arr[i][j] : '.');
       	} 
       	putchar('\n');
-  	}
+    }
 }
 
 
@@ -56,27 +56,27 @@ void rotate_clockwise(int (*arr)[SIDE]) {
 
 
 void fill_side(const char *message, int *count, int (*grid)[SIDE], char (*encrypted)[SIDE]) {
-	srand(time(0));
-	const char *ptr = &message[0];
-	const size_t len = strlen(ptr);
-	printf("[%2zu] \"%s\"\n", strlen(ptr + *count), ptr + *count);
+   srand(time(0));
+   const char *ptr = &message[0];
+   const size_t len = strlen(ptr);
+   printf("[%2zu] \"%s\"\n", strlen(ptr + *count), ptr + *count);
 
-	for (int i = 0; i < SIDE; i++) {
-		for (int j = 0; j < SIDE; j++) { 
-			if (grid[i][j] > 0) {
-				while ( (ispunct(message[*count]) || isspace(message[*count])) && *count < len) {
-					(*count)++;
-				}	
-				if (*count < len) {
-					encrypted[i][j] = tolower(message[*count]);
-				} else {
-					char lower = 'a', upper = 'z';
-					encrypted[i][j] = (rand() % (upper - lower + 1)) + lower;
-				}
-				(*count)++;
-			} 
-		}
-	}
+   for (int i = 0; i < SIDE; i++) {
+      for (int j = 0; j < SIDE; j++) { 
+	 if (grid[i][j] > 0) {
+	    while ( (ispunct(message[*count]) || isspace(message[*count])) && *count < len) {
+		(*count)++;
+	    }	
+	    if (*count < len) {
+	       encrypted[i][j] = tolower(message[*count]);
+	    } else {
+	       char lower = 'a', upper = 'z';
+	       encrypted[i][j] = (rand() % (upper - lower + 1)) + lower;
+	    }
+	    (*count)++;
+	 } 
+      }
+   }
 }
 
 
@@ -120,7 +120,7 @@ void decryptor(char *readme, const char (*encrypted)[SIDE]) {
 }
 
 void symb_matrix(const char (*arr)[SIDE]) {
-	printf("const char encrypted[][%d] = {\n", SIDE);
+    printf("const char encrypted[][%d] = {\n", SIDE);
     for (int i = 0; i < SIDE; i++) {
     	printf("\t{");
       	for (int j = 0; j < SIDE; j++) {
@@ -133,13 +133,13 @@ void symb_matrix(const char (*arr)[SIDE]) {
       	if (i < SIDE-1) {
         	printf(",\n");
         } 
-  	}
-  	printf("\n};\n");
+    }
+    printf("\n};\n");
 }
 
 
 void int_grid(const int (*arr)[SIDE]) {
-	printf("const int grid[][%d] = {\n", SIDE);
+    printf("const int grid[][%d] = {\n", SIDE);
     for (int i = 0; i < SIDE; i++) {
     	printf("\t{");
       	for (int j = 0; j < SIDE; j++) {
@@ -152,8 +152,8 @@ void int_grid(const int (*arr)[SIDE]) {
       	if (i < SIDE-1) {
         	printf(",\n");
         } 
-  	}
-  	printf("\n};\n");
+    }
+    printf("\n};\n");
 }
 
 int main(void) {
